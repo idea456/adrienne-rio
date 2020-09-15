@@ -23,19 +23,24 @@ export default function Navbar() {
   const classes = useStyles();
 
   const state = {
-    labels: ["About", "Projects", "Contact"],
+    labels: [
+      { name: "About", link: "/about" },
+      { name: "Projects", link: "/projects" },
+      { name: "Contact", link: "/contact" },
+    ],
   };
 
   return (
-    <AppBar color="transparent" position="static" className={classes.root}>
+    <AppBar color="transparent" position="fixed" className={classes.root}>
       <Toolbar className={classes.toolbar}>
         {state.labels.map((label) => {
           return (
             <Link
               className="styledLink"
               style={{ height: 80, marginRight: 40, paddingTop: 20 }}
+              to={label.link}
             >
-              <h1 style={{ fontSize: 25 }}>{label}</h1>
+              <h1 style={{ fontSize: 25 }}>{label.name}</h1>
             </Link>
           );
         })}
