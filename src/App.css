@@ -13,6 +13,7 @@
   flex: 1;
   margin-bottom: 70px;
   font-family: "IBM Plex Sans", sans-serif;
+  z-index: 1;
 }
 
 .socialLinks {
