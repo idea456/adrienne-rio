@@ -118,9 +118,7 @@ export default function AboutPage() {
           <div style={{ marginLeft: 20 }}>
             <h4 style={{ margin: 0, fontStyle: "italic" }}>Back-end</h4>
             <ul>
-              <li>Node</li>
               <li>Firebase</li>
-              <li>MongoDB</li>
               <li>MySQL</li>
             </ul>
           </div>
