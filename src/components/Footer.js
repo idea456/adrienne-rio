@@ -4,7 +4,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import "../css/Links.css";
 
-import { Link } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Footer() {
+function Footer(props) {
   const classes = useStyles();
 
   return (
@@ -31,16 +31,18 @@ export default function Footer() {
         <Link style={{ color: "#1e2022" }} to={"https://github.com/idea456"}>
           <GitHubIcon
             className="styledIcon"
-            style={{ fontSize: 45, marginRight: 20 }}
+            style={{ fontSize: "3.5vw", marginRight: 20, paddingTop: 2 }}
           />
         </Link>
         <Link
           style={{ color: "#0072b1" }}
           to={"www.linkedin.com/in/adrienne-rio"}
         >
-          <LinkedInIcon className="styledIcon" style={{ fontSize: 50 }} />
+          <LinkedInIcon className="styledIcon" style={{ fontSize: "4vw" }} />
         </Link>
       </div>
     </div>
   );
 }
+
+export default withRouter(Footer);

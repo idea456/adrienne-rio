@@ -1,27 +1,53 @@
 import React from "react";
-import "./App.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { Helmet } from "react-helmet";
+import { AnimatePresence } from "framer";
 
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Background from "./components/Background";
-import Introduction from "./components/Introduction";
+import LandingPage from "./pages/LandingPage";
+import AboutPage from "./pages/AboutPage";
+import BlogPage from "./pages/BlogPage";
 
-import { Helmet } from "react-helmet";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+const pageVariants = {
+  initial: {
+    opacity: 0,
+  },
+  in: {
+    opacity: 1,
+  },
+  out: {
+    opacity: 0,
+  },
+};
 
 function App() {
+  // const location = useLocation();
+
   return (
     <Router>
-      <div className="App">
-        <Helmet>
-          <style>{"body { background-color: #f0f5f9; }"}</style>
-        </Helmet>
+      <Helmet>
+        <style>{"body { background-color: #f0f5f9; }"}</style>
+      </Helmet>
+      <Navbar />
 
-        <Navbar />
-        <Background />
-        <Introduction />
-        <Footer />
-      </div>
+      <AnimatePresence>
+        <Switch>
+          <Route path="/about">
+            <AboutPage />
+          </Route>
+          <Route path="/blog">
+            <BlogPage />
+          </Route>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
+        </Switch>
+      </AnimatePresence>
     </Router>
   );
 }

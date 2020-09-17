@@ -1,13 +1,14 @@
 .App {
+  /* display: flex; */
   height: 100vh;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
 .mainTitle {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
+  position: relative;
+  top: 33%;
   padding-left: 70px;
   justify-content: center;
   flex: 1;

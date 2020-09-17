@@ -2,11 +2,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import "../css/Links.css";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,9 +22,10 @@ export default function Navbar() {
 
   const state = {
     labels: [
+      { name: "Home", link: "/" },
       { name: "About", link: "/about" },
       { name: "Projects", link: "/projects" },
-      { name: "Contact", link: "/contact" },
+      { name: "Blog", link: "/blog" },
     ],
   };
 
@@ -35,13 +34,15 @@ export default function Navbar() {
       <Toolbar className={classes.toolbar}>
         {state.labels.map((label) => {
           return (
-            <Link
+            <NavLink
+              exact
               className="styledLink"
               style={{ height: 80, marginRight: 40, paddingTop: 20 }}
+              activeStyle={{ color: "#faed27" }}
               to={label.link}
             >
-              <h1 style={{ fontSize: 25 }}>{label.name}</h1>
-            </Link>
+              <h1 style={{ fontSize: "1.7vw" }}>{label.name}</h1>
+            </NavLink>
           );
         })}
       </Toolbar>
