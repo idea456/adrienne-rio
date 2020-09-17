@@ -46,27 +46,61 @@ function sketch(p) {
         let dx = balls[i].pos.x - this.pos.x;
         let dy = balls[i].pos.y - this.pos.y;
         // use Eucledian distance formula to calculate distance between the two balls
-        let distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+        let distance = p.sqrt(dx * dx + dy * dy);
 
-        if (distance < this.w / 2 + this.w / 2) {
+        if (distance < this.w) {
           let angle = Math.atan2(dy, dx);
-          let targetX =
-            this.pos.x + Math.cos(angle) * (this.w / 2 + this.w / 2);
-          let targetY =
-            this.pos.y + Math.sin(angle) * (this.w / 2 + this.w / 2);
+          let targetX = this.pos.x + Math.cos(angle) * this.w;
+          let targetY = this.pos.y + Math.sin(angle) * this.w;
           let ax = (targetX - balls[i].pos.x) * 0.01;
           let ay = (targetY - balls[i].pos.y) * 0.01;
-          this.xvel += ax;
-          this.yvel += ay;
-          balls[i].xvel -= ax;
-          balls[i].yvel -= ay;
+          this.xvel -= ax;
+          this.yvel -= ay;
+          balls[i].xvel += ax;
+          balls[i].yvel += ay;
         }
+      }
+    };
+
+    this.limitSpeed = function () {
+      if (this.xvel < 1 && this.xvel < -0.5) {
+        this.xvel = -0.5;
+      }
+      if (this.xvel > 1 && this.xvel > 0.5) {
+        this.xvel = 0.5;
+      }
+      if (this.yvel < 1 && this.yvel < -0.5) {
+        this.yvel = -0.5;
+      }
+      if (this.yvel > 1 && this.yvel > 0.5) {
+        this.yvel = 0.5;
       }
     };
 
     this.move = function () {
       this.checkBoundary();
+      // check if the ball touches the mouse pointer
+      if (this.check) {
+        let radiusEffect = 120;
+        let dx = p.mouseX - this.pos.x;
+        let dy = p.mouseY - this.pos.y;
+        // use Eucledian distance formula to calculate distance between the two balls
+        let distance = p.sqrt(dx * dx + dy * dy);
 
+        let checkDistance = this.w / 2 + radiusEffect / 2;
+        if (distance < checkDistance) {
+          let angle = p.atan2(dy, dx);
+          let targetX = p.mouseX + p.cos(angle) * checkDistance;
+          let targetY = p.mouseY + p.sin(angle) * checkDistance;
+          let ax = (targetX - this.pos.x) * 0.01;
+          let ay = (targetY - this.pos.y) * 0.01;
+          this.xvel -= ax;
+          this.yvel -= ay;
+          this.speed = 5;
+          this.check = false;
+          setTimeout(() => (this.check = true), 500);
+        }
+      }
       // friction effect
       if (this.speed > 1) {
         this.speed -= 0.05;
@@ -74,37 +108,9 @@ function sketch(p) {
         this.speed = 1;
       }
 
-      // check if the ball touches the mouse pointer
-      if (this.check) {
-        let radiusEffect = 110;
-        if (
-          p.mouseX - radiusEffect < this.pos.x + this.w / 2 &&
-          p.mouseX + radiusEffect > this.pos.x - this.w / 2 &&
-          p.mouseY - radiusEffect < this.pos.y + this.w / 2 &&
-          p.mouseY + radiusEffect > this.pos.y - this.w / 2
-        ) {
-          this.yvel = p.random(-0.5, 0.5);
-          this.xvel = p.random(-0.5, 0.5);
-          this.speed = 5;
-          this.check = false;
-          setTimeout(() => (this.check = true), 500);
-        }
-      }
+      this.limitSpeed();
       this.pos.x += this.xvel * this.speed;
       this.pos.y += this.yvel * this.speed;
-      // if (this.xvel > 0 && this.xvel > this.minSpeed) {
-      //   this.xvel -= 0.1;
-      // }
-      // if (this.xvel < 0 && this.xvel < -this.minSpeed) {
-      //   this.xvel += 0.1;
-      // }
-
-      // if (this.yvel > 0 && this.yvel > this.minSpeed) {
-      //   this.yvel -= 0.1;
-      // }
-      // if (this.yvel < 0 && this.yvel < -this.minSpeed) {
-      //   this.yvel += 0.1;
-      // }
     };
   }
 
@@ -120,10 +126,15 @@ function sketch(p) {
 
   p.draw = function () {
     p.background("#f0f5f9");
+    // p.pop();
+    // p.ellipse(p.mouseX, p.mouseY, 110, 110);
+    // p.noFill();
+    // p.stroke(0);
+    // p.push();
     for (var i = 0; i < balls.length; i++) {
       balls[i].show();
       balls[i].move();
-      // balls[i].collision(balls);
+      balls[i].collision(balls);
     }
   };
 }
