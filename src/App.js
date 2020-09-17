@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet";
 import { AnimatePresence } from "framer";
 
 import Navbar from "./components/Navbar";
+import InProgressPage from "./pages/InProgressPage";
 import LandingPage from "./pages/LandingPage";
 import AboutPage from "./pages/AboutPage";
 import BlogPage from "./pages/BlogPage";
@@ -41,7 +42,10 @@ function App() {
             <AboutPage />
           </Route>
           <Route path="/blog">
-            <BlogPage />
+            <InProgressPage />
+          </Route>
+          <Route path="/projects">
+            <InProgressPage />
           </Route>
           <Route exact path="/">
             <LandingPage />

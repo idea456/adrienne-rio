@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function BlogPage() {
+export default function InProgressPage() {
   return (
     <div
       style={{
@@ -11,7 +11,9 @@ export default function BlogPage() {
         flexDirection: "column",
       }}
     >
-      <h1 style={{ alignSelf: "center" }}>Sorry, page still in progress...</h1>
+      <h1 style={{ alignSelf: "center", fontFamily: "IBM Plex Sans" }}>
+        Sorry, page still in progress...
+      </h1>
       <span style={{ alignSelf: "center", fontSize: 100 }} role="img">
         🚧
       </span>

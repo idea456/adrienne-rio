@@ -2,9 +2,14 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import MailIcon from "@material-ui/icons/Mail";
 import "../css/Links.css";
 
 import { Link, withRouter, Redirect } from "react-router-dom";
+
+const Mailto = ({ email }) => {
+  return <a href={`mailto:${email}`} />;
+};
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -38,8 +43,15 @@ function Footer(props) {
           style={{ color: "#0072b1" }}
           to={"www.linkedin.com/in/adrienne-rio"}
         >
-          <LinkedInIcon className="styledIcon" style={{ fontSize: "4vw" }} />
+          <LinkedInIcon
+            className="styledIcon"
+            style={{ fontSize: "4vw", marginRight: 20 }}
+          />
         </Link>
+
+        <a href="mailto:riowongsoatmojo@gmail.com" style={{ color: "#1e2022" }}>
+          <MailIcon className="styledIcon" style={{ fontSize: "4vw" }} />
+        </a>
       </div>
     </div>
   );
