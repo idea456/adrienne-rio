@@ -33,7 +33,10 @@ function Footer(props) {
   return (
     <div className={classes.footer}>
       <div className={classes.links}>
-        <Link style={{ color: "#1e2022" }} to={"https://github.com/idea456"}>
+        <Link
+          style={{ color: "#1e2022" }}
+          onClick={() => window.open("https://github.com/idea456", "_blank")}
+        >
           <GitHubIcon
             className="styledIcon"
             style={{ fontSize: "3.5vw", marginRight: 20, paddingTop: 2 }}
@@ -41,7 +44,9 @@ function Footer(props) {
         </Link>
         <Link
           style={{ color: "#0072b1" }}
-          to={"www.linkedin.com/in/adrienne-rio"}
+          onClick={() =>
+            window.open("https://linkedin.com/in/adrienne-rio", "_blank")
+          }
         >
           <LinkedInIcon
             className="styledIcon"

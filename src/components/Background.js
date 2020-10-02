@@ -3,6 +3,13 @@ import P5Wrapper from "react-p5-wrapper";
 
 function sketch(p) {
   let balls = [];
+  let absorb;
+
+  p.myCustomRedrawAccordingToNewPropsHandler = function (props) {
+    if (props.absorb !== null) {
+      absorb = props.absorb;
+    }
+  };
 
   function Ball() {
     this.pos = p.createVector(p.random(p.width), p.random(p.height));
@@ -60,6 +67,16 @@ function sketch(p) {
           balls[i].yvel += ay;
         }
       }
+    };
+
+    this.absorb = function () {
+      let target = p.createVector(p.mouseX, p.mouseY);
+      let distance = target.dist(this.pos);
+      let mappedDistance = p.map(distance, 100, 0, 7, 0.5);
+      target.sub(this.pos);
+      target.normalize();
+      target.mult(mappedDistance);
+      this.pos.add(target);
     };
 
     this.limitSpeed = function () {
@@ -126,12 +143,22 @@ function sketch(p) {
 
   p.draw = function () {
     p.background("#f0f5f9");
-    // p.pop();
-    // p.ellipse(p.mouseX, p.mouseY, 110, 110);
-    // p.noFill();
-    // p.stroke(0);
-    // p.push();
     for (var i = 0; i < balls.length; i++) {
+      // if (absorb) {
+      //   if (balls.length != 0) {
+      //     p.fill(0);
+      //     p.ellipse(p.mouseX, p.mouseY, 100, 100);
+      //     p.noStroke();
+      //     // balls[i].absorb();
+      //     balls[i].show();
+      //     balls[i].move();
+      //     balls[i].collision(balls);
+      //     // if (balls[i].pos.x === p.mouseX && balls[i].pos.y === p.mouseY) {
+      //     //   balls = balls.filter((ball) => ball !== balls[i]);
+      //     //   break;
+      //     }
+      //   }
+      // }
       balls[i].show();
       balls[i].move();
       balls[i].collision(balls);
@@ -139,10 +166,10 @@ function sketch(p) {
   };
 }
 
-export default function Background() {
+export default function Background(props) {
   return (
     <div style={{ position: "absolute", zIndex: -1 }}>
-      <P5Wrapper sketch={sketch} />;
+      <P5Wrapper sketch={sketch} absorb={props.absorb} />
     </div>
   );
 }

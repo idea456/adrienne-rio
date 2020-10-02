@@ -5,9 +5,18 @@ import "../App.css";
 export default function Introduction() {
   return (
     <div className="mainTitle">
-      <h1 style={{ fontSize: "8vw", margin: 0 }}>Adrienne Rio.</h1>
+      <h1
+        style={{
+          fontSize: "8vw",
+          margin: 0,
+          fontStyle: "bold",
+          fontFamily: "IBM Plex Sans",
+        }}
+      >
+        Adrienne Rio.
+      </h1>
       <div style={{ display: "relative" }}>
-        <h3 style={{ fontSize: "3.5vw", margin: 0 }}>
+        <h3 style={{ fontSize: "3.5vw", margin: 0, fontStyle: "bold" }}>
           <Typewriter
             options={{
               autoStart: true,

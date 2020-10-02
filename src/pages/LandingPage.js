@@ -7,7 +7,7 @@ import "../App.css";
 export default function LandingPage() {
   return (
     <div className="App">
-      <Background />
+      {/* <Background /> */}
       <Introduction />
       <Footer />
     </div>

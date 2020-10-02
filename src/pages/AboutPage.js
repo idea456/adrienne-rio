@@ -1,136 +1,103 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Activities from "../components/Activities";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-export default function AboutPage() {
+import Card from "@material-ui/core/Card";
+import Button from "@material-ui/core/Button";
+import CardContent from "@material-ui/core/CardContent";
+import Avatar from "@material-ui/core/Avatar";
+import GetAppIcon from "@material-ui/icons/GetApp";
+
+export default function AboutPage(props) {
+  useEffect(() => {
+    props.setAbsorb(true);
+  }, []);
   return (
-    <div style={{ display: "flex", flexDirection: "row", marginTop: 20 }}>
+    <div
+      style={{
+        display: "flex",
+        height: "100vh",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+      }}
+    >
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          marginTop: 80,
-          paddingLeft: 70,
-          paddingRight: 40,
-          fontSize: 30,
-          flex: 1,
+          height: "100vh",
+          flexDirection: "row",
+          justifyContent: "flex-start",
         }}
       >
-        <h1
-          style={{
-            margin: 0,
-            fontFamily: "IBM Plex Sans",
-          }}
-        >
-          <span role="img" style={{ fontSize: 55 }}>
-            ✌️
-          </span>
-          Profile
-        </h1>
-        <p
-          style={{
-            marginTop: 15,
-            fontSize: 25,
-            fontFamily: "IBM Plex Sans",
-            fontWeight: "normal",
-          }}
-        >
-          I am currently a student at Monash University Malaysia, studying
-          Computer Science. My interests are front-end and back-end web
-          development.
-          <br />
-          <br />
-          Currently doing an internship with IP Serverone as a front-end
-          developer.
-        </p>
-
-        <h1
-          style={{
-            margin: 0,
-            fontFamily: "IBM Plex Sans",
-          }}
-        >
-          <span role="img" style={{ fontSize: 55 }}>
-            🗒️
-          </span>
-          &nbsp;Activities
-        </h1>
         <div
           style={{
-            fontSize: 25,
-            fontFamily: "IBM Plex Sans",
-            fontWeight: "normal",
+            display: "flex",
+            marginTop: 80,
+            justifyContent: "center",
+            alignSelf: "center",
+            marginRight: 40,
+            fontSize: 30,
+            flex: 1,
           }}
         >
-          <Activities />
+          <Avatar
+            style={{ width: 420, height: 420 }}
+            src={require("../images/profile.jpg")}
+          />
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignSelf: "center",
+            marginTop: 80,
+            paddingRight: 90,
+            fontSize: 30,
+            flex: 1,
+          }}
+        >
+          <h1
+            style={{
+              margin: 0,
+              fontFamily: "IBM Plex Sans",
+            }}
+          >
+            <span role="img" style={{ fontSize: 55 }}>
+              ✌️
+            </span>
+            Profile
+          </h1>
+          <p
+            style={{
+              marginTop: 15,
+              fontSize: 25,
+              fontFamily: "IBM Plex Sans",
+              fontWeight: "normal",
+            }}
+          >
+            Hi there! I am currently a student at Monash University Malaysia,
+            studying Computer Science. My interests are front-end and back-end
+            web development.
+            <br />
+            <br />
+            I'm currently doing an internship with IP Serverone as a front-end
+            developer.
+          </p>
+          <Button
+            variant="contained"
+            startIcon={<GetAppIcon style={{ fontSize: 30 }} />}
+            style={{ fontSize: 30 }}
+          >
+            Resume
+          </Button>
         </div>
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          marginTop: 80,
-          paddingLeft: 20,
-          paddingRight: 70,
-          fontSize: 30,
-          flex: 1,
-        }}
-      >
-        <h1
-          style={{
-            margin: 0,
-            fontFamily: "IBM Plex Sans",
-          }}
-        >
-          <span role="img" style={{ fontSize: 55 }}>
-            📚
-          </span>
-          Tech Stack
-        </h1>
-        <div
-          style={{
-            marginTop: 15,
-            fontSize: 25,
-            display: "flex",
-            flexDirection: "row",
-            fontFamily: "IBM Plex Sans",
-            fontWeight: "normal",
-          }}
-        >
-          <div>
-            <h4 style={{ margin: 0, fontStyle: "italic" }}>Language</h4>
-            <ul>
-              <li>C</li>
-              <li>Python</li>
-              <li>Java</li>
-              <li>Javascript</li>
-            </ul>
-          </div>
-          <div style={{ marginLeft: 20 }}>
-            <h4 style={{ margin: 0, fontStyle: "italic" }}>Front-end</h4>
-            <ul>
-              <li>React</li>
-              <li>Vue</li>
-              <li>Bootstrap</li>
-            </ul>
-          </div>
-          <div style={{ marginLeft: 20 }}>
-            <h4 style={{ margin: 0, fontStyle: "italic" }}>Back-end</h4>
-            <ul>
-              <li>Firebase</li>
-              <li>MySQL</li>
-            </ul>
-          </div>
-          <div style={{ marginLeft: 20 }}>
-            <h4 style={{ margin: 0, fontStyle: "italic" }}>Services</h4>
-            <ul>
-              <li>Git</li>
-              <li>Docker</li>
-              <li>AWS</li>
-            </ul>
-          </div>
-        </div>
+      <div>
+        <h1>asdas</h1>
       </div>
     </div>
   );
