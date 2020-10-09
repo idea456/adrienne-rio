@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "64803d9cbf56d77899edda595df3e95b",
+    "revision": "12223758571829f4ddf8a1aea5ef3404",
     "url": "/adrienne-rio/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/adrienne-rio/static/css/2.aabc9aba.chunk.css"
   },
   {
-    "revision": "9f03c3df42415bd780a0",
+    "revision": "7559754d66ee5a7f0062",
     "url": "/adrienne-rio/static/css/main.6e40b20c.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/adrienne-rio/static/js/2.588bfda5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9f03c3df42415bd780a0",
-    "url": "/adrienne-rio/static/js/main.c5a9239b.chunk.js"
+    "revision": "7559754d66ee5a7f0062",
+    "url": "/adrienne-rio/static/js/main.1c3bbae3.chunk.js"
   },
   {
     "revision": "94fd4a100af28e1e433c",
