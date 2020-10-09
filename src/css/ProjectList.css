@@ -55,3 +55,9 @@
 .tag:hover {
   color: #000;
 }
+
+.tagActive {
+  margin: 0px;
+  margin-right: 20px;
+  color: #000;
+}

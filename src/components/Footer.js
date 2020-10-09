@@ -31,7 +31,7 @@ function Footer(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.footer}>
+    <div>
       <div className={classes.links}>
         <Link
           style={{ color: "#1e2022" }}

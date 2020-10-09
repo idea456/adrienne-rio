@@ -4,7 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import "../css/Links.css";
 
-import { NavLink } from "react-router-dom";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,8 +17,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar(props) {
   const classes = useStyles();
+
+  const { landingRef } = props;
 
   const state = {
     labels: [
@@ -34,15 +36,24 @@ export default function Navbar() {
       <Toolbar className={classes.toolbar}>
         {state.labels.map((label) => {
           return (
-            <NavLink
-              exact
+            <Link
               className="styledLink"
-              style={{ height: 80, marginRight: 40, paddingTop: 20 }}
-              activeStyle={{ color: "#faed27" }}
-              to={label.link}
+              style={{
+                height: 80,
+                marginRight: 40,
+                paddingTop: 20,
+                cursor: "pointer",
+              }}
+              activeClass="active"
+              spy={true}
+              smooth={true}
+              duration={450}
+              to={label.name}
             >
-              <h1 style={{ fontSize: "1.7vw" }}>{label.name}</h1>
-            </NavLink>
+              <h1 style={{ fontSize: "1.7vw", fontFamily: "TT Commons Bold" }}>
+                {label.name}
+              </h1>
+            </Link>
           );
         })}
       </Toolbar>

@@ -8,8 +8,11 @@ import {
   Slide,
   ButtonBack,
   ButtonNext,
+  DotGroup,
+  Dot,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
+import Footer from "../components/Footer";
 
 import "../css/Slider.css";
 import "../css/ProjectList.css";
@@ -33,14 +36,14 @@ const projects = [
   {
     title: "📈 Repo Analyzer",
     description:
-      "A simple interface to show and analyse data regarding a particular repository in Github",
+      "A simple interface to show and analyse data regarding a particular repository in Github. This application was created as a final project during my coding bootcamp at Hacktiv8 Indonesia.",
     techStack: ["react", "redux", "graphql", "javascript"],
     githubLink: "https://github.com/idea456/repo-analyzer",
   },
   {
     title: "🦠 COVID-19 Dashboard",
     description:
-      "A simple dashboard to view statistics of the current COVID-19 situation by country.",
+      "A dashboard to view statistics of the current COVID-19 situation by country, created with Vue and Material UI.",
     techStack: ["vue-dot-js", "vuetify", "javascript"],
     githubLink: "https://github.com/idea456/covid19-dashboard",
   },
@@ -61,23 +64,23 @@ const projects = [
   {
     title: "😎 This website!",
     description:
-      "A simple interface to show and analyse data regarding a particular repository in Github",
+      "My personal website! I used purely React for development, and for the cool balls in the background I used MatterJS. ",
     techStack: ["react", "javascript"],
-    githubLink: "",
+    githubLink: "https://github.com/idea456/my-website",
   },
   {
     title: "🕹️ Fun Mandarin Games",
     description:
-      "A list of games created using React with p5.js to teach Mandarin",
+      "A list of games created using React with p5.js to teach Mandarin. These games are created for Fun Mandarin tuition center when I was helping the teaching team to create a game suitable for teaching children Mandarin.",
     techStack: ["react", "redux", "javascript"],
     githubLink: "https://github.com/idea456/fun-mandarin-games",
   },
   {
     title: "🗓️ Studify",
     description:
-      "A simple interface to show and analyse data regarding a particular repository in Github",
+      "Studify is a Zoom scheduler that allows students or teachers to manage Zoom online classes all in one platform.",
     techStack: ["react", "redux", "firebase", "javascript", "ux-design"],
-    githubLink: "https://github.com/idea456/fun-mandarin-games",
+    githubLink: "https://github.com/GarudaHacks-Hackathon/Studify",
   },
   {
     title: "📚 Tango List",
@@ -96,13 +99,20 @@ const projects = [
   {
     title: "🧟 Zombie Game",
     description:
-      "A rogue-like zombie game built with Java based on Object Oriented Programming concepts such as SOLID and DRY principles, encapsulation and other programming practices.",
+      "A rogue-like zombie game built with Java based on Object Oriented Programming concepts such as SOLID and DRY principles, encapsulation and polymorphism.",
     techStack: ["java", "oop"],
     githubLink: "",
   },
+  {
+    title: "🔖 Candidate Skill-sorting algorithm",
+    description:
+      "A skill sorting algorithm that sorts a list of candidates according to their highest skill points and most cost efficient skill.",
+    techStack: ["python", "oop"],
+    githubLink: "https://github.com/song2311/monash-mini-hackathon/tree/master",
+  },
 ];
 
-export default function ProjectPage() {
+export default function ProjectPage(props) {
   const [list, setList] = useState(projects);
 
   const [activeTags, setActiveTags] = useState([]);
@@ -148,16 +158,17 @@ export default function ProjectPage() {
         display: "flex",
         marginLeft: 90,
         marginRight: 90,
+        marginTop: 100,
         justifyContent: "center",
         alignContent: "center",
-        height: "100vh",
         flexDirection: "column",
+        fontFamily: "TT Commons Bold",
       }}
     >
       <h1
         style={{
           width: 250,
-          fontSize: 60,
+          fontSize: 75,
           margin: 0,
           marginLeft: 12,
           // borderBottom: "8px solid #faed27",
@@ -185,6 +196,7 @@ export default function ProjectPage() {
                 elevation: 0,
                 backgroundColor: "transparent",
               }}
+              className="tag"
               onClick={(e) => {
                 tag.active = !tag.active;
                 if (tags[0].active && tag !== tags[0]) {
@@ -194,6 +206,11 @@ export default function ProjectPage() {
                 if (tag.active) {
                   if (tag.name === "All") {
                     setActiveTags([]);
+                    tags.map((t) => {
+                      if (t.name !== "All") {
+                        t.active = false;
+                      }
+                    });
                   } else {
                     setActiveTags([...activeTags, dict[tag.name]]);
                   }
@@ -221,12 +238,16 @@ export default function ProjectPage() {
                     );
                   }
                 }
-                e.target.style.color = tag.active ? "black" : "#c9d6df";
               }}
             >
               <h1
-                className="tag"
-                style={{ color: tag.active ? "black" : "#c9d6df" }}
+                style={{
+                  fontFamily: "TT Commons Bold",
+                  margin: 0,
+                  fontSize: 35,
+                  marginRight: 18,
+                }}
+                className={tag.active ? "tagActive" : "tag"}
               >
                 {tag.name}
               </h1>
@@ -236,16 +257,6 @@ export default function ProjectPage() {
       </div>
 
       <div>
-        {/* <Glider
-          hasDots
-          hasArrows
-          draggable
-          dragVelocity={1.5}
-          scrollLock={true}
-          slidesToShow={2}
-          slidesToScroll={1}
-          className="glider"
-        > */}
         {list.length === 0 && (
           <div
             style={{
@@ -269,7 +280,6 @@ export default function ProjectPage() {
           >
             <Slider>
               {list.map((project, i) => {
-                // if (checkTechStack(project.techStack)) {
                 return (
                   <Slide index={i}>
                     <ProjectCard
@@ -284,8 +294,19 @@ export default function ProjectPage() {
                 );
               })}
             </Slider>
-            <ButtonBack>Back</ButtonBack>
-            <ButtonNext>Next</ButtonNext>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: 20,
+              }}
+            >
+              {list.map((p, i) => {
+                if (i % 2 === 0) {
+                  return <Dot slide={i} />;
+                }
+              })}
+            </div>
           </CarouselProvider>
         )}
       </div>

@@ -10,7 +10,7 @@ export default function Introduction() {
           fontSize: "8vw",
           margin: 0,
           fontStyle: "bold",
-          fontFamily: "IBM Plex Sans",
+          fontFamily: "TT Commons Bold",
         }}
       >
         Adrienne Rio.

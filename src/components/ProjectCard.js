@@ -46,32 +46,40 @@ export default function ProjectCard(props) {
         paddingBottom: 10,
         paddingLeft: 20,
         paddingRight: 20,
-        fontFamily: "IBM Plex Sans",
       }}
     >
       <CardContent>
-        <h1 style={{ fontSize: 40 }}>
+        <h1 style={{ fontSize: 40, fontFamily: "TT Commons Bold" }}>
           <strong>{title}</strong>
         </h1>
-        <p>{description}</p>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          {techStack.map((tech) => {
-            if (tech !== "ux-design" && tech !== "oop") {
-              return (
-                <Tooltip title={dict[tech]} TransitionComponent={Zoom}>
-                  <img
-                    height="26"
-                    width="26"
-                    style={{ marginRight: 10 }}
-                    src={`https://unpkg.com/simple-icons@v3/icons/${tech}.svg`}
-                  />
-                </Tooltip>
-              );
-            }
-          })}
-        </div>
+        <p
+          style={{
+            color: "#40424b",
+            fontSize: 20,
+            margin: 0,
+            fontFamily: "TT Commons Regular",
+          }}
+        >
+          {description}
+        </p>
       </CardContent>
 
+      <div style={{ display: "flex", flexDirection: "row", paddingLeft: 10 }}>
+        {techStack.map((tech) => {
+          if (tech !== "ux-design" && tech !== "oop") {
+            return (
+              <Tooltip title={dict[tech]} TransitionComponent={Zoom}>
+                <img
+                  height="26"
+                  width="26"
+                  style={{ marginRight: 10 }}
+                  src={`https://unpkg.com/simple-icons@v3/icons/${tech}.svg`}
+                />
+              </Tooltip>
+            );
+          }
+        })}
+      </div>
       <CardActions>
         <Button
           variant="contained"

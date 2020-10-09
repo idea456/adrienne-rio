@@ -1,175 +1,130 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import P5Wrapper from "react-p5-wrapper";
+import Matter from "matter-js";
 
 function sketch(p) {
   let balls = [];
-  let absorb;
+  let fall;
+  let engine;
+  let world;
+  let mouseBoundary;
+  let ballCount = 0.06 * window.innerWidth;
 
-  p.myCustomRedrawAccordingToNewPropsHandler = function (props) {
-    if (props.absorb !== null) {
-      absorb = props.absorb;
-    }
-  };
+  const Engine = Matter.Engine;
+  const World = Matter.World;
+  const Bodies = Matter.Bodies;
 
-  function Ball() {
-    this.pos = p.createVector(p.random(p.width), p.random(p.height));
+  function Ball(x, y, world) {
+    this.options = {
+      inertia: Infinity,
+      restitution: 0.3,
+      friction: 0,
+      frictionAir: 0,
+      frictionStatic: 0,
+    };
     this.w = 20;
+    this.spaceAdded = false;
+    this.body = Bodies.circle(x, y, this.w / 2, this.options);
+    this.fill = p.random(-1, 1) < 0 ? "#00adb5" : "#fc5185";
     this.boundary = 20;
-    this.yvel = p.random(-0.5, 0.5);
-    this.xvel = p.random(-0.5, 0.5);
-    this.i = p.random(-1, 1);
-    this.check = true;
-    this.speed = 1;
-    this.minSpeed = 0.5;
+    World.add(world, this.body);
+    Matter.Body.setVelocity(this.body, {
+      x: p.random(-2, 2),
+      y: p.random(-2, 2),
+    });
+    this.body.frictionAir = 0;
+    this.body.friction = 0;
 
     this.show = function () {
       p.noStroke();
-      if (this.i < 0) {
-        p.fill("#3fc1c9");
-      } else {
-        p.fill("#fc5185");
-      }
-
-      p.ellipse(this.pos.x, this.pos.y, this.w, this.w);
+      p.fill(this.fill);
+      p.ellipse(this.body.position.x, this.body.position.y, this.w, this.w);
     };
 
     this.checkBoundary = function () {
-      if (this.pos.x > p.width + this.boundary) {
-        this.pos.x = 0;
+      if (this.body.position.x > p.width + this.boundary) {
+        Matter.Body.setPosition(this.body, { x: 0, y: this.body.position.y });
       }
-      if (this.pos.x < -this.boundary) {
-        this.pos.x = p.width;
+      if (this.body.position.x < -this.boundary) {
+        Matter.Body.setPosition(this.body, {
+          x: p.width,
+          y: this.body.position.y,
+        });
       }
-      if (this.pos.y > p.height + this.boundary) {
-        this.pos.y = 0;
+      if (this.body.position.y > p.height + this.boundary) {
+        Matter.Body.setPosition(this.body, { x: this.body.position.x, y: 0 });
       }
-      if (this.pos.y < -this.boundary) {
-        this.pos.y = p.height;
+      if (this.body.position.y < -this.boundary) {
+        Matter.Body.setPosition(this.body, {
+          x: this.body.position.x,
+          y: p.height,
+        });
       }
-    };
-
-    this.collision = function (balls) {
-      for (var i = 0; i < balls.length; i++) {
-        let dx = balls[i].pos.x - this.pos.x;
-        let dy = balls[i].pos.y - this.pos.y;
-        // use Eucledian distance formula to calculate distance between the two balls
-        let distance = p.sqrt(dx * dx + dy * dy);
-
-        if (distance < this.w) {
-          let angle = Math.atan2(dy, dx);
-          let targetX = this.pos.x + Math.cos(angle) * this.w;
-          let targetY = this.pos.y + Math.sin(angle) * this.w;
-          let ax = (targetX - balls[i].pos.x) * 0.01;
-          let ay = (targetY - balls[i].pos.y) * 0.01;
-          this.xvel -= ax;
-          this.yvel -= ay;
-          balls[i].xvel += ax;
-          balls[i].yvel += ay;
-        }
-      }
-    };
-
-    this.absorb = function () {
-      let target = p.createVector(p.mouseX, p.mouseY);
-      let distance = target.dist(this.pos);
-      let mappedDistance = p.map(distance, 100, 0, 7, 0.5);
-      target.sub(this.pos);
-      target.normalize();
-      target.mult(mappedDistance);
-      this.pos.add(target);
-    };
-
-    this.limitSpeed = function () {
-      if (this.xvel < 1 && this.xvel < -0.5) {
-        this.xvel = -0.5;
-      }
-      if (this.xvel > 1 && this.xvel > 0.5) {
-        this.xvel = 0.5;
-      }
-      if (this.yvel < 1 && this.yvel < -0.5) {
-        this.yvel = -0.5;
-      }
-      if (this.yvel > 1 && this.yvel > 0.5) {
-        this.yvel = 0.5;
-      }
-    };
-
-    this.move = function () {
-      this.checkBoundary();
-      // check if the ball touches the mouse pointer
-      if (this.check) {
-        let radiusEffect = 120;
-        let dx = p.mouseX - this.pos.x;
-        let dy = p.mouseY - this.pos.y;
-        // use Eucledian distance formula to calculate distance between the two balls
-        let distance = p.sqrt(dx * dx + dy * dy);
-
-        let checkDistance = this.w / 2 + radiusEffect / 2;
-        if (distance < checkDistance) {
-          let angle = p.atan2(dy, dx);
-          let targetX = p.mouseX + p.cos(angle) * checkDistance;
-          let targetY = p.mouseY + p.sin(angle) * checkDistance;
-          let ax = (targetX - this.pos.x) * 0.01;
-          let ay = (targetY - this.pos.y) * 0.01;
-          this.xvel -= ax;
-          this.yvel -= ay;
-          this.speed = 5;
-          this.check = false;
-          setTimeout(() => (this.check = true), 500);
-        }
-      }
-      // friction effect
-      if (this.speed > 1) {
-        this.speed -= 0.05;
-      } else {
-        this.speed = 1;
-      }
-
-      this.limitSpeed();
-      this.pos.x += this.xvel * this.speed;
-      this.pos.y += this.yvel * this.speed;
     };
   }
 
   p.setup = function () {
-    p.createCanvas(window.innerWidth, window.innerHeight);
+    p.createCanvas(p.windowWidth, document.body.scrollHeight);
+    engine = Engine.create();
+    world = engine.world;
+    engine.world.gravity.y = 0;
+
     // limit the amount of balls based on the screen width
-    let ballCount = 0.07 * window.innerWidth;
     for (var i = 0; i < ballCount; i++) {
-      let ball = new Ball();
+      let ball = new Ball(p.random(p.width), p.random(p.height), world);
       balls.push(ball);
     }
+
+    mouseBoundary = Bodies.circle(p.mouseX, p.mouseY, 50, {
+      restitution: 0.4,
+      friction: 0,
+      frictionAir: 0,
+    });
+
+    World.add(world, mouseBoundary);
+    Matter.Resolver._restingThresh = 0.001;
+    Engine.run(engine);
   };
 
   p.draw = function () {
     p.background("#f0f5f9");
+
+    // p.rect(0, p.height - 20, p.width, 20);
+    Matter.Body.setPosition(mouseBoundary, { x: p.mouseX, y: p.mouseY });
+
     for (var i = 0; i < balls.length; i++) {
-      // if (absorb) {
-      //   if (balls.length != 0) {
-      //     p.fill(0);
-      //     p.ellipse(p.mouseX, p.mouseY, 100, 100);
-      //     p.noStroke();
-      //     // balls[i].absorb();
-      //     balls[i].show();
-      //     balls[i].move();
-      //     balls[i].collision(balls);
-      //     // if (balls[i].pos.x === p.mouseX && balls[i].pos.y === p.mouseY) {
-      //     //   balls = balls.filter((ball) => ball !== balls[i]);
-      //     //   break;
-      //     }
-      //   }
-      // }
+      if (fall) {
+        balls[i].body.restitution = 0.3;
+      } else {
+        balls[i].body.restitution = 1;
+      }
       balls[i].show();
-      balls[i].move();
-      balls[i].collision(balls);
+      balls[i].checkBoundary();
     }
+  };
+
+  let interval;
+  p.mousePressed = function () {
+    if (p.mouseIsPressed)
+      interval = setInterval(
+        () => balls.push(new Ball(p.mouseX, p.mouseY, world)),
+        80
+      );
+  };
+
+  p.mouseClicked = function () {
+    balls.push(new Ball(p.mouseX, p.mouseY, world));
+  };
+
+  p.mouseReleased = function () {
+    clearInterval(interval);
   };
 }
 
 export default function Background(props) {
   return (
     <div style={{ position: "absolute", zIndex: -1 }}>
-      <P5Wrapper sketch={sketch} absorb={props.absorb} />
+      <P5Wrapper sketch={sketch} />
     </div>
   );
 }

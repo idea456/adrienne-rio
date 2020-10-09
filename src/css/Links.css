@@ -22,3 +22,7 @@
 .styledIcon:hover {
   color: #faed27;
 }
+
+.active {
+  color: #faed27;
+}
