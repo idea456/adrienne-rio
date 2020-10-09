@@ -66,7 +66,7 @@ const projects = [
     description:
       "My personal website! I used purely React for development, and for the cool balls in the background I used MatterJS. ",
     techStack: ["react", "javascript"],
-    githubLink: "https://github.com/idea456/my-website",
+    githubLink: "https://github.com/idea456/adrienne-rio",
   },
   {
     title: "🕹️ Fun Mandarin Games",
