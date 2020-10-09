@@ -154,7 +154,7 @@ export default function AboutPage(props) {
         </p>
       </TextSection>
 
-      <TextSection emoji="⚙" title="Skills">
+      <TextSection emoji="🛠️" title="Skills">
         <div
           style={{
             display: "flex",
