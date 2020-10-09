@@ -34,6 +34,7 @@ function App() {
   return (
     <Router>
       <Helmet>
+        <title>Adrienne Rio</title>
         <style>{"body { background-color: #f0f5f9; }"}</style>
       </Helmet>
 
