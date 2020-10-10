@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,6 +8,12 @@ import {
 } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { Element } from "react-scroll";
+import {
+  createMuiTheme,
+  MuiThemeProvider,
+  withStyles,
+} from "@material-ui/core/styles";
+import Tooltip from "@material-ui/core/Tooltip";
 
 import Navbar from "./components/Navbar";
 import InProgressPage from "./pages/InProgressPage";
@@ -17,42 +24,49 @@ import Background from "./components/Background";
 import Footer from "./components/Footer";
 import "./css/global.css";
 
-function mapStyles(styles) {
-  return {
-    opacity: styles.opacity,
-    transform: `scale(${styles.scale})`,
-  };
-}
+const defaultTheme = createMuiTheme();
+const theme = createMuiTheme({
+  overrides: {
+    MuiTooltip: {
+      tooltip: {
+        fontSize: "1em",
+        color: "black",
+        padding: 20,
+        fontFamily: "TT Commons Regular",
+        backgroundColor: "white",
+        borderRadius: 10,
+      },
+    },
+  },
+});
 
 function App() {
-  let [fall, setFall] = useState(false);
-  let [switchPage, setSwitchPage] = useState({
-    page: "",
-    switched: true,
-  });
-
   return (
     <Router>
-      <Helmet>
-        <title>Adrienne Rio</title>
-        <style>{"body { background-color: #f0f5f9; }"}</style>
-      </Helmet>
+      <MuiThemeProvider theme={defaultTheme}>
+        <Helmet>
+          <title>Adrienne Rio</title>
+          <style>{"body { background-color: #f0f5f9; }"}</style>
+        </Helmet>
 
-      <Navbar />
+        <Navbar />
 
-      <Element name="Home">
-        <LandingPage />
-      </Element>
+        <Element name="Home">
+          <LandingPage />
+        </Element>
 
-      <Element name="About">
-        <AboutPage name="About" />
-      </Element>
+        <MuiThemeProvider theme={theme}>
+          <Element name="About">
+            <AboutPage name="About" />
+          </Element>
+        </MuiThemeProvider>
 
-      <Element name="Projects">
-        <ProjectPage name="Projects" />
-      </Element>
+        <Element name="Projects">
+          <ProjectPage name="Projects" />
+        </Element>
 
-      <Footer />
+        <Footer />
+      </MuiThemeProvider>
     </Router>
   );
 }

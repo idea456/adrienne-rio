@@ -13,104 +13,10 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import Footer from "../components/Footer";
-
 import "../css/Slider.css";
 import "../css/ProjectList.css";
 import "glider-js/glider.min.css";
-
-const dict = {
-  All: "all",
-  React: "react",
-  Vue: "vue-dot-js",
-  Redux: "redux",
-  Firebase: "firebase",
-  Javascript: "javascript",
-  Typescript: "typescript",
-  Java: "java",
-  Python: "python",
-  Haskell: "haskell",
-  "UX Design": "ux-design",
-  OOP: "oop",
-};
-const projects = [
-  {
-    title: "📈 Repo Analyzer",
-    description:
-      "A simple interface to show and analyse data regarding a particular repository in Github. This application was created as a final project during my coding bootcamp at Hacktiv8 Indonesia.",
-    techStack: ["react", "redux", "graphql", "javascript"],
-    githubLink: "https://github.com/idea456/repo-analyzer",
-  },
-  {
-    title: "🦠 COVID-19 Dashboard",
-    description:
-      "A dashboard to view statistics of the current COVID-19 situation by country, created with Vue and Material UI.",
-    techStack: ["vue-dot-js", "vuetify", "javascript"],
-    githubLink: "https://github.com/idea456/covid19-dashboard",
-  },
-  {
-    title: "♥️ Hearts AI",
-    description:
-      "An intelligent agent developed with Haskell to compete against other players in the game of Hearts.",
-    techStack: ["haskell"],
-    githubLink: "https://github.com/idea456/hearts",
-  },
-  {
-    title: "☄️ Asteroids",
-    description:
-      "An implementation of the original Asteroids game in the browser using functional programming concepts of Observables from RxJS with Typescript and Javascript.",
-    techStack: ["typescript", "reactivex"],
-    githubLink: "https://github.com/idea456/asteroids",
-  },
-  {
-    title: "😎 This website!",
-    description:
-      "My personal website! I used purely React for development, and for the cool balls in the background I used MatterJS. ",
-    techStack: ["react", "javascript"],
-    githubLink: "https://github.com/idea456/adrienne-rio",
-  },
-  {
-    title: "🕹️ Fun Mandarin Games",
-    description:
-      "A list of games created using React with p5.js to teach Mandarin. These games are created for Fun Mandarin tuition center when I was helping the teaching team to create a game suitable for teaching children Mandarin.",
-    techStack: ["react", "redux", "javascript"],
-    githubLink: "https://github.com/idea456/fun-mandarin-games",
-  },
-  {
-    title: "🗓️ Studify",
-    description:
-      "Studify is a Zoom scheduler that allows students or teachers to manage Zoom online classes all in one platform.",
-    techStack: ["react", "redux", "firebase", "javascript", "ux-design"],
-    githubLink: "https://github.com/GarudaHacks-Hackathon/Studify",
-  },
-  {
-    title: "📚 Tango List",
-    description:
-      "An app that acts like a to-do list to store everyday vocabulary encounters in Japanese. ",
-    techStack: ["vue-dot-js", "vuetify", "javascript"],
-    githubLink: "https://github.com/idea456/tango-list",
-  },
-  {
-    title: "⭕ TicTacPro",
-    description:
-      "A game created with Javascript involving a 10 x 10 grid (list of lists) which has the same goal as regular tic-tac-toe, that is to connect a sequence of crosses or circles in either a column, row or diagonal",
-    techStack: ["javascript"],
-    githubLink: "https://github.com/idea456/TicTacPro",
-  },
-  {
-    title: "🧟 Zombie Game",
-    description:
-      "A rogue-like zombie game built with Java based on Object Oriented Programming concepts such as SOLID and DRY principles, encapsulation and polymorphism.",
-    techStack: ["java", "oop"],
-    githubLink: "",
-  },
-  {
-    title: "🔖 Candidate Skill-sorting algorithm",
-    description:
-      "A skill sorting algorithm that sorts a list of candidates according to their highest skill points and most cost efficient skill.",
-    techStack: ["python", "oop"],
-    githubLink: "https://github.com/song2311/monash-mini-hackathon/tree/master",
-  },
-];
+import { dict, projects } from "../constants";
 
 export default function ProjectPage(props) {
   const [list, setList] = useState(projects);
@@ -132,14 +38,6 @@ export default function ProjectPage(props) {
     { name: "OOP", active: false },
   ]);
 
-  // // true, check if activeTags is subset of techStack
-  // techStack: ["react", "redux", "firebase"];
-  // activeTags: ["react", "redux"];
-
-  // // true,
-  // techStack: ["react", "redux", "firebase"];
-  // activeTags: ["react", "redux"];
-
   const checkTechStack = (techStack) => {
     // check if the active tags are a subset of the tech stack in the project
     return activeTags.every((tag) => techStack.includes(tag));
@@ -159,6 +57,7 @@ export default function ProjectPage(props) {
         marginLeft: 90,
         marginRight: 90,
         marginTop: 100,
+        marginBottom: 120,
         justifyContent: "center",
         alignContent: "center",
         flexDirection: "column",

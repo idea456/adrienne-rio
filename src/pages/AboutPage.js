@@ -206,10 +206,11 @@ export default function AboutPage(props) {
           <Skills
             title="Practices"
             skills={[
+              "Algorithms/Data Structures",
               "Object Oriented Programming",
               "UX Design",
               "Black and white box testing",
-              "Functional programming",
+              "Functional Programming",
             ]}
           />
 

@@ -1,11 +1,16 @@
 import React from "react";
+import Tooltip from "@material-ui/core/Tooltip";
+import "../css/Skills.css";
+import { description } from "../constants";
 
 export default function Skills(props) {
   return (
     <div style={{ marginRight: "1.7vw" }}>
       <h1>{props.title}</h1>
       {props.skills.map((skill) => (
-        <h2 style={{ marginTop: 5, color: "#8d93ab" }}>{skill}</h2>
+        <Tooltip placement="top" title={description[skill]} enterDelay={130}>
+          <h2 className="skillTitle">{skill}</h2>
+        </Tooltip>
       ))}
     </div>
   );
