@@ -59,7 +59,7 @@ export default function ProjectPage(props) {
       style={{
         display: "flex",
         marginTop: 100,
-        marginBottom: 60,
+        marginBottom: 90,
         justifyContent: "center",
         alignContent: "center",
         flexDirection: "column",

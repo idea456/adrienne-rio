@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     background: "transparent",
     boxShadow: "none",
+    width: "28%",
   },
   toolbar: {
     justifyContent: "flex-end",
