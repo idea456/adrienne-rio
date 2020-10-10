@@ -1,10 +1,15 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
+import Avatar from "@material-ui/core/Avatar";
 import "../App.css";
 
 export default function Introduction() {
   return (
     <div className="mainTitle">
+      <Avatar
+        src={require("../images/avatar.png")}
+        style={{ width: "15vw", height: "15vw" }}
+      />
       <h1
         style={{
           fontSize: "8vw",

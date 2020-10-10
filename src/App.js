@@ -21,6 +21,7 @@ import LandingPage from "./pages/LandingPage";
 import AboutPage from "./pages/AboutPage";
 import ProjectPage from "./pages/ProjectPage";
 import Background from "./components/Background";
+import Avatar from "@material-ui/core/Avatar";
 import Footer from "./components/Footer";
 import "./css/global.css";
 
@@ -29,10 +30,10 @@ const theme = createMuiTheme({
   overrides: {
     MuiTooltip: {
       tooltip: {
-        fontSize: "1em",
-        color: "black",
+        fontSize: "1.2em",
+        color: "#3b444b",
         padding: 20,
-        fontFamily: "TT Commons Regular",
+        fontFamily: "TT Commons Bold",
         backgroundColor: "white",
         borderRadius: 10,
       },
