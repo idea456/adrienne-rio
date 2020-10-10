@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2c7346e660d08ab3dbee61981c4b0578",
+    "revision": "496982e01d792d59662f865e7a9ce6c5",
     "url": "/adrienne-rio/index.html"
   },
   {
