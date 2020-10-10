@@ -81,7 +81,7 @@ export const projects = [
     description:
       "A rogue-like zombie game built with Java based on Object Oriented Programming concepts such as SOLID and DRY principles, encapsulation and polymorphism.",
     techStack: ["java", "oop"],
-    githubLink: "",
+    githubLink: "https://github.com/idea456/zombie-game",
   },
   {
     title: "🔖 Candidate Skill-sorting algorithm",
