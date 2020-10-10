@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import SplitText from "react-pose-text";
 
 import "../css/About.css";
 import cv from "../files/cv.pdf";
@@ -93,65 +94,79 @@ export default function AboutPage(props) {
       </div>
 
       <TextSection emoji="📝" title="Activities">
-        <h1>Volunteer work at Fun Mandarin</h1>
-        <h2 style={{ color: "#8d93ab", margin: 0 }}>
-          November 2019 - January 2020
-        </h2>
-        <p style={{ fontSize: 20, color: "#40424b" }}>
-          On November 2019, I spent my summer break helping a local Mandarin
-          tuition center back at my hometown in Jakarta to create several fun
-          games for young children to learn Mandarin as a fun activity. It was a
-          really, really fun experience working with the staff and teachers! I
-          learned so much from them, from interacting with the locals and also
-          learning a bit of Mandarin along the way! I also created the games
-          with React and p5js, with my knowledge from my coding bootcamp React
-          training. From this experince, I'm proud to be able to use my
-          knowledge to create something that benefits someone!
-        </p>
+        <div style={{ display: "flex", textAlign: "justify" }}>
+          <div style={{ flex: 1, marginRight: "5vw" }}>
+            <h1>Volunteer work at Fun Mandarin</h1>
+            <h2 style={{ color: "#8d93ab", margin: 0 }}>
+              November 2019 - January 2020
+            </h2>
+            <p style={{ fontSize: 20, color: "#40424b" }}>
+              On November 2019, I spent my summer break helping a local Mandarin
+              tuition center back at my hometown in Jakarta to create several
+              fun games for young children to learn Mandarin as a fun activity.
+              It was a really, really fun experience working with the staff and
+              teachers! I learned so much from them, from interacting with the
+              locals and also learning a bit of Mandarin along the way! I also
+              created the games with React and p5js, with my knowledge from my
+              coding bootcamp React training. From this experince, I'm proud to
+              be able to use my knowledge to create something that benefits
+              someone!
+            </p>
+          </div>
+
+          <br />
+
+          <div style={{ flex: 1 }}>
+            <h1>Hacktiv8 React Bootcamp</h1>
+            <h2 style={{ color: "#8d93ab", margin: 0 }}>
+              October 2019 - January 2020
+            </h2>
+            <p style={{ fontSize: 20, color: "#40424b" }}>
+              During my summer break, I also decided to participate a React
+              coding bootcamp. After learning Bootstrap from Coursera, I decided
+              to step up and learn React as my next stepping stone in front-end
+              web development. Overall it was one of the best decisions of my
+              life! I learned so much, from state management using Redux to a
+              gentle introduction into React Native. I also made a Github
+              repository statistical dashboard as my final project.
+            </p>
+          </div>
+        </div>
 
         <br />
 
-        <h1>Hacktiv8 React Bootcamp</h1>
-        <h2 style={{ color: "#8d93ab", margin: 0 }}>
-          October 2019 - January 2020
-        </h2>
-        <p style={{ fontSize: 20, color: "#40424b" }}>
-          During my summer break, I also decided to participate a React coding
-          bootcamp. After learning Bootstrap from Coursera, I decided to step up
-          and learn React as my next stepping stone in front-end web
-          development. Overall it was one of the best decisions of my life! I
-          learned so much, from state management using Redux to a gentle
-          introduction into React Native. I also made a Github repository
-          statistical dashboard as my final project.
-        </p>
+        <div style={{ display: "flex", textAlign: "justify" }}>
+          <div style={{ flex: 1, marginRight: "5vw" }}>
+            <h1>Garudahacks Hackathon</h1>
+            <h2 style={{ color: "#8d93ab", margin: 0 }}>
+              14 August 2020 - 16 August 2020
+            </h2>
+            <p style={{ fontSize: 20, color: "#40424b" }}>
+              This was my very first hackathon, and although it was virtual, it
+              was really fun! Me and my friends gathered together and built a
+              Zoom scheduler, using React and Firebase. Although we didn't win,
+              the experience and connections made was very valuable.
+            </p>
+          </div>
 
-        <br />
-
-        <h1>Garudahacks Hackathon</h1>
-        <h2 style={{ color: "#8d93ab", margin: 0 }}>
-          14 August 2020 - 16 August 2020
-        </h2>
-        <p style={{ fontSize: 20, color: "#40424b" }}>
-          This was my very first hackathon, and although it was virtual, it was
-          really fun! Me and my friends gathered together and built a Zoom
-          scheduler, using React and Firebase. Although we didn't win, the
-          experience and connections made was very valuable.
-        </p>
-
-        <br />
-        <h1>Monash Mini Hackathon (1st place winner)</h1>
-        <h2 style={{ color: "#8d93ab", margin: 0 }}>
-          27 August 2020 - 30 August 2020
-        </h2>
-        <p style={{ fontSize: 20, color: "#40424b" }}>
-          The next hackathon I participated in was a small one, hosted by
-          Soft-Skills. My team and I was tasked in creating an algorithm using
-          Python with speed and time complexity being the priority, to match a
-          list of candidates in a company with the best and cost efficient
-          skills. I used hash tables, performed white-box testing to ensure all
-          test cases are handled, and also used decorators to calculate runtime
-          performance. In the end, we won and came first in the hackathon!
-        </p>
+          <br />
+          <div style={{ flex: 1 }}>
+            <h1>Monash Mini Hackathon</h1>
+            <h2 style={{ color: "#8d93ab", margin: 0 }}>
+              27 August 2020 - 30 August 2020
+            </h2>
+            <p style={{ fontSize: 20, color: "#40424b" }}>
+              The next hackathon I participated in was a small one, hosted by
+              Soft-Skills. My team and I was tasked in creating an algorithm
+              using Python with speed and time complexity being the priority, to
+              match a list of candidates in a company with the best and cost
+              efficient skills. I used hash tables, performed white-box testing
+              to ensure all test cases are handled, and also used decorators to
+              calculate runtime performance. In the end, we won and came first
+              in the hackathon!
+            </p>
+          </div>
+        </div>
       </TextSection>
 
       <TextSection emoji="🛠️" title="Skills">

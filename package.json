@@ -25,6 +25,8 @@
     "react-glider": "^2.0.1",
     "react-helmet": "^6.1.0",
     "react-p5-wrapper": "^2.0.0",
+    "react-pose": "^4.0.10",
+    "react-pose-text": "^3.1.0",
     "react-router-dom": "^5.2.0",
     "react-router-transition": "^2.0.0",
     "react-scripts": "3.4.3",
