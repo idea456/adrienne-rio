@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/scss/bootstrap.scss";
 import ProjectCard from "../components/ProjectCard";
 import Button from "@material-ui/core/Button";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import {
   CarouselProvider,
   Slider,
@@ -57,7 +59,7 @@ export default function ProjectPage(props) {
         marginLeft: 90,
         marginRight: 90,
         marginTop: 100,
-        marginBottom: 120,
+        marginBottom: 60,
         justifyContent: "center",
         alignContent: "center",
         flexDirection: "column",
@@ -177,6 +179,20 @@ export default function ProjectPage(props) {
             visibleSlides={2}
             isIntrinsicHeight
           >
+            <div
+              style={{
+                position: "absolute",
+                top: "428%",
+                left: "3%",
+              }}
+            >
+              <ButtonBack
+                style={{ backgroundColor: "transparent", border: "none" }}
+              >
+                <ArrowBackIosIcon style={{ fontSize: 40 }} />
+              </ButtonBack>
+            </div>
+
             <Slider>
               {list.map((project, i) => {
                 return (
@@ -193,6 +209,21 @@ export default function ProjectPage(props) {
                 );
               })}
             </Slider>
+
+            <div
+              style={{
+                position: "absolute",
+                top: "428%",
+                right: "3%",
+              }}
+            >
+              <ButtonNext
+                style={{ backgroundColor: "transparent", border: "none" }}
+              >
+                <ArrowForwardIosIcon style={{ fontSize: 40 }} />
+              </ButtonNext>
+            </div>
+
             <div
               style={{
                 display: "flex",
