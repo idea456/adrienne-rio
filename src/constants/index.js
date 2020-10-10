@@ -120,7 +120,7 @@ export const description = {
   Java:
     "I learned Java in my first year of my university, and have used it since for Object Oriented Programming projects and tasks.",
   Javascript:
-    "My understanding of Javascript, from Promises, DOM, to high-order functions are passable enough to create applications with it.",
+    "My understanding of Javascript from Promises, DOM, to high-order functions are generally good and I have learned and practiced it by developing applications with these concepts.",
   Typescript:
     "I learned Typescript during my Programming Paradigms unit in my university as part of the functional programming course. I was able to pick up the language relatively fast and create applications with it using Observables such as the Asteroids game I made.",
   Haskell:
