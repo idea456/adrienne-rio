@@ -144,19 +144,21 @@ export default function AboutPage(props) {
             <p style={{ fontSize: 20, color: "#40424b" }}>
               This was my very first hackathon, and although it was virtual, it
               was really fun! Me and my friends gathered together and built a
-              Zoom scheduler, using React and Firebase. Although we didn't win,
-              the experience and connections made was very valuable.
+              Zoom scheduler, using React and Firebase. Although we didn't win
+              any cool prizes or anything, the experience and connections I made
+              was very valuable. I learned so much from this hackathon from
+              using Azure functions to connect it to the front-end to
+              re-designing an application complying with Material Design
+              guidelines.
             </p>
           </div>
-
-          <br />
           <div style={{ flex: 1 }}>
             <h1>Monash Mini Hackathon</h1>
             <h2 style={{ color: "#8d93ab", margin: 0 }}>
               27 August 2020 - 30 August 2020
             </h2>
             <p style={{ fontSize: 20, color: "#40424b" }}>
-              The next hackathon I participated in was a small one, hosted by
+              Another hackathon I participated in was a small one, hosted by
               Soft-Skills. My team and I was tasked in creating an algorithm
               using Python with speed and time complexity being the priority, to
               match a list of candidates in a company with the best and cost
