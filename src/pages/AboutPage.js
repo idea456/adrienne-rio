@@ -146,10 +146,11 @@ export default function AboutPage(props) {
               was really fun! Me and my friends gathered together and built a
               Zoom scheduler, using React and Firebase. Although we didn't win
               any cool prizes or anything, the experience and connections I made
-              was very valuable. I learned so much from this hackathon from
-              using Azure functions to connect it to the front-end to
-              re-designing an application complying with Material Design
-              guidelines.
+              was very valuable. I learned so much from this hackathon: I
+              stepped up my communication skills and gained a leadership
+              personality by leading the team with a list of ideas and
+              inspiration, all in a tight schedule, to learning back-end
+              services such as Firestore.
             </p>
           </div>
           <div style={{ flex: 1 }}>
