@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "24cb63164e84578f3424b8312402a5c7",
+    "revision": "441cdceb38c35e3e7b8c1b1c0cce5ad0",
     "url": "/adrienne-rio/index.html"
   },
   {
-    "revision": "8b13c71f14e0eca9bb07",
+    "revision": "502fd596b69f52d8cb1a",
     "url": "/adrienne-rio/static/css/2.aabc9aba.chunk.css"
   },
   {
-    "revision": "b4b2b133a28ee54b2d98",
-    "url": "/adrienne-rio/static/css/main.d1e23b30.chunk.css"
+    "revision": "4e830b82190013df2ca2",
+    "url": "/adrienne-rio/static/css/main.ecdce459.chunk.css"
   },
   {
-    "revision": "8b13c71f14e0eca9bb07",
-    "url": "/adrienne-rio/static/js/2.42a1998b.chunk.js"
+    "revision": "502fd596b69f52d8cb1a",
+    "url": "/adrienne-rio/static/js/2.d9f6775f.chunk.js"
   },
   {
     "revision": "89b0379e7bcda1a468d8b0343aeb4e53",
-    "url": "/adrienne-rio/static/js/2.42a1998b.chunk.js.LICENSE.txt"
+    "url": "/adrienne-rio/static/js/2.d9f6775f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b4b2b133a28ee54b2d98",
-    "url": "/adrienne-rio/static/js/main.9642e0ef.chunk.js"
+    "revision": "4e830b82190013df2ca2",
+    "url": "/adrienne-rio/static/js/main.05b87560.chunk.js"
   },
   {
     "revision": "94fd4a100af28e1e433c",
@@ -38,6 +38,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "64f3f998447493fc2bf1019fd0bebdc2",
     "url": "/adrienne-rio/static/media/TTCommons-Regular.64f3f998.ttf"
+  },
+  {
+    "revision": "65ae2b05f73373e17d51adf2859f3163",
+    "url": "/adrienne-rio/static/media/avatar.65ae2b05.png"
   },
   {
     "revision": "dafd9302d9c871319f59b77c253f4ecc",
