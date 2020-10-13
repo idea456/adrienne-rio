@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/adrienne-rio/static/css/main.11efb5b8.chunk.css",
-    "main.js": "/adrienne-rio/static/js/main.7d9b9d83.chunk.js",
-    "main.js.map": "/adrienne-rio/static/js/main.7d9b9d83.chunk.js.map",
+    "main.css": "/adrienne-rio/static/css/main.fd171d9e.chunk.css",
+    "main.js": "/adrienne-rio/static/js/main.306056f6.chunk.js",
+    "main.js.map": "/adrienne-rio/static/js/main.306056f6.chunk.js.map",
     "runtime-main.js": "/adrienne-rio/static/js/runtime-main.4bab29d3.js",
     "runtime-main.js.map": "/adrienne-rio/static/js/runtime-main.4bab29d3.js.map",
-    "static/css/2.aabc9aba.chunk.css": "/adrienne-rio/static/css/2.aabc9aba.chunk.css",
-    "static/js/2.be2db547.chunk.js": "/adrienne-rio/static/js/2.be2db547.chunk.js",
-    "static/js/2.be2db547.chunk.js.map": "/adrienne-rio/static/js/2.be2db547.chunk.js.map",
+    "static/css/2.7b2f6668.chunk.css": "/adrienne-rio/static/css/2.7b2f6668.chunk.css",
+    "static/js/2.2962265b.chunk.js": "/adrienne-rio/static/js/2.2962265b.chunk.js",
+    "static/js/2.2962265b.chunk.js.map": "/adrienne-rio/static/js/2.2962265b.chunk.js.map",
     "index.html": "/adrienne-rio/index.html",
-    "precache-manifest.f5d42a075ea64f4656a3de4073cbf132.js": "/adrienne-rio/precache-manifest.f5d42a075ea64f4656a3de4073cbf132.js",
+    "precache-manifest.e3adf9b9552262b7c5428717edad508a.js": "/adrienne-rio/precache-manifest.e3adf9b9552262b7c5428717edad508a.js",
     "service-worker.js": "/adrienne-rio/service-worker.js",
-    "static/css/2.aabc9aba.chunk.css.map": "/adrienne-rio/static/css/2.aabc9aba.chunk.css.map",
-    "static/css/main.11efb5b8.chunk.css.map": "/adrienne-rio/static/css/main.11efb5b8.chunk.css.map",
-    "static/js/2.be2db547.chunk.js.LICENSE.txt": "/adrienne-rio/static/js/2.be2db547.chunk.js.LICENSE.txt",
+    "static/css/2.7b2f6668.chunk.css.map": "/adrienne-rio/static/css/2.7b2f6668.chunk.css.map",
+    "static/css/main.fd171d9e.chunk.css.map": "/adrienne-rio/static/css/main.fd171d9e.chunk.css.map",
+    "static/js/2.2962265b.chunk.js.LICENSE.txt": "/adrienne-rio/static/js/2.2962265b.chunk.js.LICENSE.txt",
     "static/media/App.css": "/adrienne-rio/static/media/TTCommons-Regular.64f3f998.ttf",
     "static/media/avatar.png": "/adrienne-rio/static/media/avatar.65ae2b05.png",
     "static/media/cv.pdf": "/adrienne-rio/static/media/cv.dafd9302.pdf",
@@ -21,9 +21,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.4bab29d3.js",
-    "static/css/2.aabc9aba.chunk.css",
-    "static/js/2.be2db547.chunk.js",
-    "static/css/main.11efb5b8.chunk.css",
-    "static/js/main.7d9b9d83.chunk.js"
+    "static/css/2.7b2f6668.chunk.css",
+    "static/js/2.2962265b.chunk.js",
+    "static/css/main.fd171d9e.chunk.css",
+    "static/js/main.306056f6.chunk.js"
   ]
 }
