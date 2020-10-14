@@ -55,7 +55,7 @@ export default function Introduction() {
                 .typeString(" equipped with algorithmic knowledge")
                 .pauseFor(900)
                 .deleteChars(38)
-                .typeString(" love make things with React 🖥️")
+                .typeString(" love making things with React 🖥️")
                 .pauseFor(900)
                 .deleteAll(20)
                 .changeDelay(70)

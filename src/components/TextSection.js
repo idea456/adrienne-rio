@@ -15,7 +15,7 @@ export default function TextSection(props) {
         <h1
           style={{
             margin: 0,
-            fontSize: "4vw",
+            fontSize: 50,
             fontFamily: "TT Commons Bold",
           }}
         >

@@ -124,7 +124,7 @@ export const description = {
   Typescript:
     "I learned Typescript during my Programming Paradigms unit in my university as part of the functional programming course. I was able to pick up the language relatively fast and create applications with it using Observables such as the Asteroids game I made.",
   Haskell:
-    "Haskell was another language I learned in my Programming Paradigms unit at my university as part of the functional programming course. My current understanding with it is relatively basic.",
+    "Haskell was another language I learned in my Programming Paradigms unit at my university as part of the functional programming course. I have experienced coding functional programming with Haskell, since as part of my assignment I was tasked with creating an AI to beat random players in the card game of Hearts.  ",
   "Algorithms/Data Structures":
     "My understanding of algorithms and data structures is relatively strong, since my units has enforced this knowledge, I have learned to develop an algorithmic thinking and approach when facing a problem, especially after many practices and training at Leetcode problems.",
   "Object Oriented Programming":

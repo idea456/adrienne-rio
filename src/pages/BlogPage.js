@@ -1,20 +1,33 @@
 import React from "react";
 
+import Grid from "@material-ui/core/Container";
+
+import Paper from "@material-ui/core/Paper";
+
 export default function BlogPage() {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignContent: "center",
-        height: "100vh",
-        flexDirection: "column",
-      }}
-    >
-      <h1 style={{ alignSelf: "center" }}>Sorry, page still in progress...</h1>
-      <span style={{ alignSelf: "center", fontSize: 100 }} role="img">
-        🚧
-      </span>
-    </div>
+    <Grid container spacing={3}>
+      <Grid item xs={12}>
+        <Paper>xs=12</Paper>
+      </Grid>
+      <Grid item xs={6}>
+        <Paper>xs=6</Paper>
+      </Grid>
+      <Grid item xs={6}>
+        <Paper>xs=6</Paper>
+      </Grid>
+      <Grid item xs={3}>
+        <Paper>xs=3</Paper>
+      </Grid>
+      <Grid item xs={3}>
+        <Paper>xs=3</Paper>
+      </Grid>
+      <Grid item xs={3}>
+        <Paper>xs=3</Paper>
+      </Grid>
+      <Grid item xs={3}>
+        <Paper>xs=3</Paper>
+      </Grid>
+    </Grid>
   );
 }

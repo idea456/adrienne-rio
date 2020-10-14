@@ -35,17 +35,11 @@ export default function ProjectCard(props) {
         flexDirection: "column",
         justifyContent: "space-between",
         backgroundColor: "white",
-        height: "90%",
-        marginRight: 30,
         marginTop: 10,
-        marginLeft: 10,
         marginBottom: 20,
         borderRadius: 10,
         borderStyle: "none",
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: 20,
-        paddingRight: 20,
+        padding: "10px 20px 10px 20px",
       }}
     >
       <CardContent>
@@ -72,7 +66,7 @@ export default function ProjectCard(props) {
                 <img
                   height="26"
                   width="26"
-                  style={{ marginRight: 10 }}
+                  style={{ marginRight: 10, marginBottom: 10 }}
                   src={`https://unpkg.com/simple-icons@v3/icons/${tech}.svg`}
                 />
               </Tooltip>

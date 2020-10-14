@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import {
   BrowserRouter as Router,
@@ -14,6 +14,7 @@ import {
   withStyles,
 } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
+import Grid from "@material-ui/core/Grid";
 
 import Navbar from "./components/Navbar";
 import InProgressPage from "./pages/InProgressPage";
@@ -23,7 +24,9 @@ import ProjectPage from "./pages/ProjectPage";
 import Background from "./components/Background";
 import Avatar from "@material-ui/core/Avatar";
 import Footer from "./components/Footer";
+import Seperation from "./components/Seperation";
 import "./css/global.css";
+import GA from "./utils/GoogleAnalytics";
 
 const defaultTheme = createMuiTheme();
 const theme = createMuiTheme({
@@ -42,8 +45,21 @@ const theme = createMuiTheme({
 });
 
 function App() {
+  const [resized, setResized] = useState(false);
+  const [totalHeight, setTotalHeight] = useState(null);
+
+  const body = useRef(null);
+
+  useEffect(() => {
+    if (body.current) {
+      setTotalHeight(body.current.scrollHeight);
+      console.log(totalHeight);
+    }
+  }, [body]);
+
   return (
     <Router>
+      {GA.init() && <GA.RouteTracker />}
       <MuiThemeProvider theme={defaultTheme}>
         <Helmet>
           <title>Adrienne Rio</title>
@@ -51,22 +67,28 @@ function App() {
         </Helmet>
 
         <Navbar />
-
-        <Element name="Home">
-          <LandingPage />
-        </Element>
-
-        <MuiThemeProvider theme={theme}>
-          <Element name="About">
-            <AboutPage name="About" />
+        <div style={{ position: "relative", overflow: "hidden" }} ref={body}>
+          <Background
+            resized={resized}
+            totalHeight={totalHeight}
+            setResized={setResized}
+          />
+          <Element name="Home">
+            <LandingPage />
           </Element>
-        </MuiThemeProvider>
 
-        <Element name="Projects">
-          <ProjectPage name="Projects" />
-        </Element>
+          <MuiThemeProvider theme={theme}>
+            <Element name="About">
+              <AboutPage name="About" />
+            </Element>
+          </MuiThemeProvider>
 
-        <Footer />
+          <Element name="Projects">
+            <ProjectPage setResized={setResized} />
+          </Element>
+
+          <Footer />
+        </div>
       </MuiThemeProvider>
     </Router>
   );
